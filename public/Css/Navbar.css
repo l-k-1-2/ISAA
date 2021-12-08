@@ -1,0 +1,17 @@
+.navbar{
+    background-color: rgb(235, 235, 235, 0.2);
+}
+.navbar-brand{
+    margin-left: 9%;
+    color: #F7D4AB !important;
+    font-size: 1.7rem !important;
+}
+.nav-link{
+    color: black !important;
+    font-size: 1.1rem;
+    color: white !important;
+}
+.navbar-nav{
+    margin-left: auto;
+    margin-right: 10%;
+}

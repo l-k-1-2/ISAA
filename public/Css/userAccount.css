@@ -1,0 +1,82 @@
+body{
+    background-color: #060A11 !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid{
+    text-align: center;
+    align-content: center;
+}
+
+h1{
+    color: #F7D4AB;
+    font-weight: 600 !important;
+}
+
+span{
+    color: red;
+}
+p{
+    color: white;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+td{
+    font-size: 1.3rem;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-left: 2px solid rgb(235, 235, 235, 0.2) !important;
+    border-right: 2px solid rgb(235, 235, 235, 0.2) !important;
+    border-bottom:2px solid rgb(235, 235, 235, 0.2) !important;
+    border-top:2px solid rgb(235, 235, 235, 0.2) !important;
+}
+
+td:nth-child(2n+1){
+    color: #F7D4AB;
+}
+
+.tranTable td{
+    border: none !important;
+}
+
+input{
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid #F7D4AB;
+    color: white;
+    font-size: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.error{
+    color: red;
+}
+
+.Succuseful{
+    color: green;
+}
+
+button{
+    background-color: #F7D4AB;
+    color: #060A11;
+    margin-left: 15%;
+    padding: 8px 50px 8px 50px;
+    border: 2px solid #F7D4AB;
+    border-radius: 5px !important;
+    font-size: 1.1rem !important;
+}

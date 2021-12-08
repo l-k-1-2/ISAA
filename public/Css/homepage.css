@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-color: #060A11 !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text {
+    margin-top: 15%;
+}
+
+.text h1 {
+    font-size: 2.5vw;
+    font-weight: 400;
+    color: #F7D4AB;
+    letter-spacing: 0.04em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input{
+    padding-top: 2rem;
+}
+
+table{
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+td{
+    padding-bottom: 1.5rem;
+}
+
+td:nth-child(1){
+    padding-right: 3rem;
+}
+label{
+    color: #F7D4AB;    
+}
+
+input{
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid #F7D4AB;
+    color: white;
+    font-size: 1rem;
+}
+
+#text{
+    text-align: center;
+    color: red;
+}
+#login{
+    border: none;
+    background-color: #F7D4AB;
+    padding: 8px 40px 8px 40px;
+    border-radius: 5px;
+    font-size: 1.1vw;
+    font-weight: 500;
+    color: #060A11;
+}
+
+#login:hover {
+    color: #F7D4AB;
+    background-color: transparent;
+    border: 2px solid #F7D4AB;
+    transition: 0.3s;
+}
+
+.img {
+    padding-right: 0% !important;
+}
+
+img {
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 991.5px) {
+    .text {
+        margin-top: 5%;
+    }
+
+    .text h1 {
+        font-size: 5vw;
+    }
+
+    .text button {
+        font-size: 1.7vw;
+    }
+
+    .img {
+        padding-top: 10%;
+        text-align: center;
+    }
+
+    img {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width:681.5px) {
+
+    .textdiv,
+    .img {
+        padding-right: 0 !important;
+    }
+
+    .text h1 {
+        font-size: 6vw;
+    }
+
+    .text p {
+        font-size: 2.5vw;
+    }
+
+    .text button {
+        font-size: 2vw;
+    }
+}
+
+@media only screen and (max-width:576.5px) {
+    .maindiv {
+        padding-right: 0 !important;
+    }
+
+    .textdiv,
+    .img {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .text h1 {
+        font-size: 7vw;
+    }
+
+    .text p {
+        font-size: 2.5vw;
+    }
+
+    .text button {
+        font-size: 2.5vw;
+    }
+
+    img {
+        width: 80%;
+    }
+}

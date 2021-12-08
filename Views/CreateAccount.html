@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create User</title>
+
+  <link rel="stylesheet" href="../Css/Navbar.css">
+  <link rel="stylesheet" href="../Css/createaccount.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">My Bank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav my-2 my-lg-2">
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/Sender">Make Payment</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/Reciepts">Transaction History</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <br> <br>
+    <h1>Create Account</h1>
+    <br>
+    <div class="input">
+      <form action="/CreateAccount" method="POST" id="form">
+        <table>
+          <tr>
+            <td> <label for="name">Name</label> <span>*</span> </td>
+            <td> <input type="text" id="name" name="name"> </td>
+          </tr>
+
+          <tr>
+            <td> <label for="email">Email</label> <span>*</span> </td>
+            <td> <input type="email" id="email" name="email" onkeyup="validateEmail(this.value)" class="form-control">
+            </td>
+          </tr>
+
+          <tr>
+            <td> <label for="phone">Phone Number</label> <span>*</span> </td>
+            <td> <input type="number" name="phone" id="phone" class="form-control" onkeyup="validatePhone(this.value)">
+            </td>
+          </tr>
+
+          <tr>
+            <td> <label for="balance">Balance</label> <span>*</span></td>
+            <td> <input type="number" id="balance" name="balance" onkeyup="validateBalance(this.value)"> </td>
+          </tr>
+
+          <tr>
+            <td> <label for="password">Create Password</label> <span>*</span></td>
+            <td> <input type="password" name="password" id="password" class="form-control"
+                onkeyup="validatePass(this.value)"> </td>
+            <td><span></span></td>
+          </tr>
+          <tr>
+            <td> <label for="password">Re-enter Password</label> <span>*</span></td>
+            <td> <input type="password" name="re_pass" id="re_password" class="form-control"
+                onkeyup="validateRepass(this.value)"> </td>
+          </tr>
+
+          <tr>
+            <td><label for="address">Address</label> <span>*</span></td>
+            <td><textarea name="address" id="address" rows="3"></textarea></td>
+          </tr>
+        </table>
+        <br>
+        <button type="button" onclick="verify()">Create User</button>
+        <br> <br>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    var flag = 0;
+
+    function verify() {
+      var ip = document.getElementsByTagName('input');
+      var c = 0;
+      for (var i = 0; i < ip.length; i++) {
+        if (ip[i].value == "") {
+          alert("Empty fields are not accepted");
+          c++;
+          break;
+        }
+      }
+      if (c == 0 && flag==0) {
+        document.getElementById('form').submit();
+      }
+    }
+
+
+
+    function validateEmail(val) {
+      var typingTimer;
+      var doneTypingInterval = 1500;
+
+      clearTimeout(typingTimer);
+
+      if (document.getElementById('email').value) {
+        typingTimer = setTimeout(function () {
+          var e = document.getElementById('email');
+          var x = e.value;
+          var atpos = x.indexOf("@");
+          var dotpos = x.lastIndexOf(".");
+          if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+            e.setAttribute('class', 'form-control is-invalid')
+            flag++;
+            return false;
+          } else {
+            e.setAttribute('class', 'form-control is-valid');
+            flag = 0;
+            return true
+          }
+        }, doneTypingInterval);
+      }
+    }
+
+    function validatePhone(val) {
+      var typingTimer;
+      var doneTypingInterval = 1500;
+
+      clearTimeout(typingTimer);
+      var ph = document.getElementById('phone');
+      if (ph.value) {
+        typingTimer = setTimeout(function () {
+          var phonePatt = /\d{10}/
+          if (phonePatt.test(ph.value)) {
+            ph.setAttribute('class', 'form-control is-valid')
+            flag = 0
+          } else {
+            ph.setAttribute('class', 'form-control is-invalid')
+            flag++;
+          }
+        }, doneTypingInterval);
+      }
+    }
+
+    function validateBalance(val) {
+      var typingTimer;
+      var doneTypingInterval = 1500;
+
+      clearTimeout(typingTimer);
+      var balance = document.getElementById('balance');
+      if (balance.value) {
+        typingTimer = setTimeout(function () {
+          var BalancePatt = /^\d+$/;
+          if (BalancePatt.test(balance.value)) {
+            balance.setAttribute('class', 'form-control is-valid')
+            flag = 0;
+          } else {
+            balance.setAttribute('class', 'form-control is-invalid')
+            flag++;
+          }
+        }, doneTypingInterval);
+      }
+    }
+
+    function validatePass(val) {
+      var typingTimer;
+      var doneTypingInterval = 1500;
+
+      clearTimeout(typingTimer);
+      var pass = document.getElementById('password');
+      if (pass.value) {
+        typingTimer = setTimeout(function () {
+          var PassPatt = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+          if (PassPatt.test(pass.value)) {
+            pass.setAttribute('class', 'form-control is-valid')
+            flag = 0
+          } else {
+            pass.setAttribute('class', 'form-control is-invalid')
+            flag++;
+          }
+        }, doneTypingInterval);
+      }
+    }
+
+    function validateRepass(val) {
+      var typingTimer;
+      var doneTypingInterval = 1500;
+
+      clearTimeout(typingTimer);
+      var re_pass = document.getElementById('re_password');
+      if (re_pass.value) {
+        typingTimer = setTimeout(function () {
+
+          if (re_pass.value == document.getElementById('password').value) {
+            re_pass.setAttribute('class', 'form-control is-valid')
+            flag = 0
+          } else {
+            re_pass.setAttribute('class', 'form-control is-invalid')
+            flag++;
+          }
+        }, doneTypingInterval);
+      }
+    }
+  </script>
+</body>
+
+</html>
